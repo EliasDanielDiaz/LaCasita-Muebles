@@ -1,0 +1,470 @@
+/* =========================================================
+   RESET Y LAYOUT GENERAL
+   ========================================================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav-principal {
+  background-color: transparent;
+  padding: 12px 20px;
+  overflow: visible;
+  position: relative;
+  z-index: 2000;
+}
+
+.nav-principal ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+/* Botones del nav estilo CTA */
+.nav-principal a {
+  text-decoration: none;
+  padding: 10px 22px;
+  background-color: #c8a97e;
+  color: #2d2d2d;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover igual al CTA */
+.nav-principal a:hover {
+  background-color: #d8b88f;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Brillo animado igual al CTA */
+.nav-principal a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.nav-principal a:hover::after {
+  left: 100%;
+}
+
+.fade-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.fade-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.fade-delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header-carpinteria {
+  height: 260px;
+  background-image: url("../imagenes/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* NUEVO */
+  align-items: flex-end;
+  padding: 20px;
+  color: white;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.header-texto {
+  position: relative;
+  z-index: 1;
+}
+
+.header-texto h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.header-texto p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+.parallax-header {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* BOTÓN CTA */
+.btn-cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #c8a97e;
+  color: #2d2d2d;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto hover */
+.btn-cta:hover {
+  background-color: #d8b88f;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Efecto brillo animado */
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-cta:hover::after {
+  left: 100%;
+}
+
+/* HAMBURGER BUTTON */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 28px;
+  display: none; /* se muestra solo en mobile */
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background: white;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* Animación al abrir */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(12px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+/* NAV MOBILE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-principal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(45,45,45,0.95);
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    z-index: 1000;
+  }
+
+  .nav-principal.open {
+    height: 200px; /* alto del menú desplegado */
+  }
+
+  .nav-principal ul {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+.contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.contenedor h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* =========================================================
+   CARRUSEL
+   ========================================================= */
+.carrusel {
+  margin-top: 40px;
+}
+
+/* Slide-in del carrusel completo */
+.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carrusel-contenedor {
+  position: relative;
+  overflow: hidden;
+}
+
+.carrusel-items {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Item del carrusel */
+.item {
+  min-width: 300px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+
+  /* Animación secuencial */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Delays secuenciales */
+.item:nth-child(1) { transition-delay: 0.1s; }
+.item:nth-child(2) { transition-delay: 0.2s; }
+.item:nth-child(3) { transition-delay: 0.3s; }
+.item:nth-child(4) { transition-delay: 0.4s; }
+
+/* Cuando el carrusel aparece */
+.carrusel.visible .item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Zoom suave en imágenes */
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.item:hover img {
+  transform: scale(1.08);
+}
+
+/* Títulos y textos */
+.item h3 {
+  padding: 15px;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.item p {
+  padding: 0 15px 15px;
+  color: #555;
+}
+
+/* Botones del carrusel */
+.btn-carrusel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.btn-carrusel:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Puntitos del carrusel */
+.carrusel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background-color: #333;
+  transform: scale(1.2);
+}
+
+/* =========================================================
+   FOOTER PROFESIONAL
+   ========================================================= */
+
+.footer {
+  background-color: #2d2d2d;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  color: #c8a97e;
+}
+
+.footer-col p,
+.footer-col a {
+  color: #ddd;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-red:hover {
+  color: #c8a97e;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #ddd;
+}
+
+.footer-red:hover .icon svg {
+  fill: #c8a97e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+}
