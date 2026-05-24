@@ -1,7 +1,14 @@
 /* =========================================================
-   RESET Y LAYOUT GENERAL
+    RESET Y LAYOUT GENERAL
    ========================================================= */
-html, body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
   height: 100%;
 }
 
@@ -14,12 +21,7 @@ main {
   flex: 1;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Animación fade-in */
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
@@ -34,228 +36,306 @@ main {
 }
 
 /* =========================================================
-   NAV
+    NAV (DESKTOP)
    ========================================================= */
 .nav-principal {
-  background-color: transparent;
-  padding: 12px 20px;
-  overflow: visible;
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  gap: 10px;
+  align-items: center;
   position: relative;
-  z-index: 2000;
+  z-index: 2;
 }
 
-.nav-principal ul {
+/* Lista del menú */
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 10px;
 }
 
-/* Botones del nav estilo CTA */
-.nav-principal a {
-  text-decoration: none;
-  padding: 10px 22px;
-  background-color: #c8a97e;
-  color: #2d2d2d;
-  font-weight: 700;
-  border-radius: 6px;
-  transition: 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Hover igual al CTA */
-.nav-principal a:hover {
-  background-color: #d8b88f;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
-
-/* Brillo animado igual al CTA */
-.nav-principal a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.nav-principal a:hover::after {
-  left: 100%;
-}
-
-.fade-delay-1 {
-  animation-delay: 0.2s;
-}
-
-.fade-delay-2 {
-  animation-delay: 0.4s;
-}
-
-.fade-delay-3 {
-  animation-delay: 0.6s;
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-.header-carpinteria {
-  height: 260px;
-  background-image: url("../imagenes/fondo2.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  justify-content: space-between; /* NUEVO */
-  align-items: flex-end;
-  padding: 20px;
+.nav-links a {
   color: white;
-  animation: fadeIn 1s ease-out forwards;
-}
-
-.header-texto {
-  position: relative;
-  z-index: 1;
-}
-
-.header-texto h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.header-texto p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin-top: 5px;
-}
-
-.parallax-header {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-/* BOTÓN CTA */
-.btn-cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 28px;
-  background-color: #c8a97e;
-  color: #2d2d2d;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border-radius: 6px;
   text-decoration: none;
-  transition: 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Efecto hover */
-.btn-cta:hover {
-  background-color: #d8b88f;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
-
-/* Efecto brillo animado */
-.btn-cta::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.btn-cta:hover::after {
-  left: 100%;
-}
-
-/* HAMBURGER BUTTON */
-.hamburger {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 35px;
-  height: 28px;
-  display: none; /* se muestra solo en mobile */
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-  background: none;
-  border: none;
-}
-
-.hamburger span {
-  display: block;
-  height: 4px;
-  background: white;
-  border-radius: 4px;
+  font-size: 1.1rem;
   transition: 0.3s;
 }
 
-/* Animación al abrir */
-.hamburger.active span:nth-child(1) {
-  transform: translateY(12px) rotate(45deg);
+.nav-links a:hover {
+  color: #d8b98f;
 }
 
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
+/* Botón madera */
+.nav-links a.boton-madera-rectangular {
+  background: linear-gradient(145deg, #8b5a2b, #d8b48a);
+  border: 5px solid #5a3a1e;
+  border-radius: 12px;
+  color: #2b1a0f !important;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  padding: 12px 22px;
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: inline-block;
 }
 
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-12px) rotate(-45deg);
+.nav-links a.boton-madera-rectangular:hover {
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 0 15px rgba(0, 0, 0, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* NAV MOBILE */
-@media (max-width: 768px) {
+/* =========================================================
+    HAMBURGER MENU
+   ========================================================= */
+.hamburger {
+  display: none; /* oculto en desktop */
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 3000;
+  transform: translateY(-50%);
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* =========================================================
+    HEADER — LOGO A LA IZQUIERDA
+   ========================================================= */
+.header-carpinteria {
+  position: relative;
+  height: 70vh;
+  min-height: 200px;
+  background-image: url("../imagenes/fondo2.jpg");
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | texto | menú */
+  align-items: center;
+  color: white;
+  padding: 40px;
+}
+
+.header-logo {
+  grid-column: 1;
+  z-index: 2;
+  grid-row: 1;
+}
+
+.header-logo img {
+  width: 110px;
+  height: auto;
+  object-fit: contain;
+}
+
+.header-texto {
+  grid-column: 2;
+  z-index: 2;
+  text-align: left;
+  grid-row: 1;
+}
+
+.header-texto h1 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.header-texto p {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.nav-principal a {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Overlay */
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.65)
+  );
+  z-index: 1;
+}
+
+/* =========================================================
+    RESPONSIVE MOBILE
+   ========================================================= */
+@media (max-width: 500px) {
+
+  /* HEADER GRID */
+  .header-carpinteria {
+    grid-template-columns: 1fr; /* una sola columna */
+    text-align: center;
+  }
+
+  /* LOGO */
+  .header-logo {
+    grid-column: 1;
+    justify-self: center;
+  }
+
+  .header-logo img {
+    width: 80px; /* tamaño ideal mobile */
+    height: auto;
+  }
+
+  /* TEXTO */
+  .header-texto {
+    grid-column: 1;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  .header-texto h1 {
+    font-size: 2.2rem;
+  }
+
+  .header-texto p {
+    font-size: 1rem;
+  }
+
+  /* HAMBURGUESA */
   .hamburger {
     display: flex;
-  }
-
-  .nav-principal {
     position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(45,45,45,0.95);
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    transition: 0.4s ease;
-    z-index: 1000;
+    top: 20px;
+    right: 20px;
+    z-index: 3000;
   }
 
-  .nav-principal.open {
-    height: 200px; /* alto del menú desplegado */
+  /* MENÚ MOBILE */
+  .nav-principal {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .nav-principal ul {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
     flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
     gap: 20px;
+    display: none;
+    z-index: 2500;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 }
 
 /* =========================================================
-   MAIN
+    RESPONSIVE TABLET
+   ========================================================= */
+@media (min-width: 500px) and (max-width: 1024px) {
+
+  /* HEADER GRID */
+  .header-carpinteria {
+    grid-template-columns: auto 1fr auto; /* logo | texto | menú */
+    padding: 30px;
+    height: 50vh; /* más compacto que desktop */
+  }
+
+  /* LOGO */
+  .header-logo img {
+    width: 90px; /* un poco más chico que desktop */
+    height: auto;
+  }
+
+  /* TEXTO */
+  .header-texto h1 {
+    font-size: 2.6rem;
+  }
+
+  .header-texto p {
+    font-size: 1.1rem;
+  }
+
+  /* MENÚ */
+  .nav-principal {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  /* OCULTAR HAMBURGUESA EN TABLET */
+  .hamburger {
+    display: none;
+  }
+}
+
+/* =========================================================
+    RESPONSIVE DESKTOP
+   ========================================================= */
+@media (min-width: 1024px) {
+
+  .header-carpinteria {
+    grid-template-columns: auto 1fr auto; /* logo | texto | menú */
+    padding: 40px;
+    height: 70vh;
+  }
+
+  .header-logo img {
+    width: 110px;
+  }
+
+  .header-texto h1 {
+    font-size: 3rem;
+  }
+
+  .header-texto p {
+    font-size: 1.3rem;
+  }
+
+  .nav-principal {
+    display: flex;
+    gap: 20px;
+    justify-self: end;
+  }
+
+  .hamburger {
+    display: none; /* nunca en desktop */
+  }
+}
+
+/* =========================================================
+    MAIN
    ========================================================= */
 .contenedor {
   width: 90%;
@@ -265,28 +345,16 @@ main {
 
 .contenedor h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
   font-size: 2rem;
   color: #333;
 }
 
 /* =========================================================
-   CARRUSEL
+    CARRUSEL
    ========================================================= */
 .carrusel {
-  margin-top: 40px;
-}
-
-/* Slide-in del carrusel completo */
-.slide-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.slide-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  margin-top: 50px;
 }
 
 .carrusel-contenedor {
@@ -296,38 +364,38 @@ main {
 
 .carrusel-items {
   display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Item del carrusel */
 .item {
-  min-width: 300px;
+  min-width: calc(100% / 3);
   background: #f5f5f5;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
-
-  /* Animación secuencial */
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 0.9;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
-/* Delays secuenciales */
-.item:nth-child(1) { transition-delay: 0.1s; }
-.item:nth-child(2) { transition-delay: 0.2s; }
-.item:nth-child(3) { transition-delay: 0.3s; }
-.item:nth-child(4) { transition-delay: 0.4s; }
+@media (max-width: 900px) {
+  .item {
+    min-width: calc(100% / 2);
+  }
+}
 
-/* Cuando el carrusel aparece */
-.carrusel.visible .item {
+@media (max-width: 600px) {
+  .item {
+    min-width: 100%;
+  }
+}
+
+.item.activo {
   opacity: 1;
-  transform: translateY(0);
+  transform: scale(1.02);
 }
 
-/* Zoom suave en imágenes */
 .item img {
   width: 100%;
   height: 200px;
@@ -339,9 +407,9 @@ main {
   transform: scale(1.08);
 }
 
-/* Títulos y textos */
 .item h3 {
-  padding: 15px;
+  margin-top: 12px;
+  margin-bottom: 6px;
   font-size: 1.3rem;
   color: #333;
 }
@@ -349,6 +417,7 @@ main {
 .item p {
   padding: 0 15px 15px;
   color: #555;
+  line-height: 1.45;
 }
 
 /* Botones del carrusel */
@@ -356,24 +425,29 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
   border: none;
-  padding: 12px;
+  padding: 10px 14px;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   border-radius: 50%;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .btn-carrusel:hover {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
 
-/* Puntitos del carrusel */
+/* Puntitos */
 .carrusel-dots {
   display: flex;
   justify-content: center;
@@ -396,69 +470,99 @@ main {
 }
 
 /* =========================================================
-   FOOTER PROFESIONAL
+    FOOTER — VERSIÓN COMPACTA Y LIMPIA
    ========================================================= */
-
 .footer {
   background-color: #2d2d2d;
   color: white;
-  padding: 40px 20px;
-  margin-top: 60px;
+  padding: 20px 20px;
+  margin-top: 40px;
 }
 
 .footer-contenedor {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   max-width: 1100px;
   margin: auto;
 }
 
 .footer-col h3,
 .footer-col h4 {
-  margin-bottom: 12px;
-  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
   color: #c8a97e;
 }
 
 .footer-col p,
 .footer-col a {
   color: #ddd;
-  font-size: 1rem;
-  margin-bottom: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.footer-red:hover {
-  color: #c8a97e;
-}
-
-.footer-copy {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-.icon {
+/* Íconos */
+.footer-col .icon {
+  width: 18px;
+  height: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
   margin-right: 6px;
 }
 
-.icon svg {
-  width: 100%;
-  height: 100%;
-  fill: #ddd;
+.footer-col .icon svg {
+  width: 18px !important;
+  height: 18px !important;
 }
 
-.footer-red:hover .icon svg {
-  fill: #c8a97e;
+/* Redes */
+.social-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+}
+
+.social-btn svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.social-btn.instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+}
+
+.social-btn.whatsapp {
+  background: #25d366;
+}
+
+.social-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Copy */
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 /* Responsive */

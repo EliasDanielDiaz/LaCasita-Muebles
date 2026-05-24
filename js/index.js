@@ -1,81 +1,83 @@
 // ===============================
-// CARRUSEL PROFESIONAL
+// CARRUSEL 3 IMÁGENES + LOOP INFINITO
 // ===============================
 
-// Elementos
 const carrusel = document.querySelector('.carrusel-items');
+let items = document.querySelectorAll('.item');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
-// Estado
-let desplazamiento = 0;
-let itemWidth = calcularAnchoItem();
-let autoplayInterval;
+let index = 0;
+const visible = 3; // cantidad visible al mismo tiempo
 
-// ===============================
-// FUNCIONES
-// ===============================
-
-// Calcula cuántos items entran según el ancho de pantalla
-function calcularAnchoItem() {
-  const anchoPantalla = window.innerWidth;
-
-  if (anchoPantalla < 600) return 320;     // 1 tarjeta
-  if (anchoPantalla < 900) return 340;     // 2 tarjetas
-  return 360;                              // 3 tarjetas
+// Clonar los primeros 3 elementos al final para loop infinito
+for (let i = 0; i < visible; i++) {
+  const clone = items[i].cloneNode(true);
+  carrusel.appendChild(clone);
 }
 
-// Mover carrusel
-function moverCarrusel(direccion) {
-  desplazamiento += direccion * itemWidth;
+items = document.querySelectorAll('.item'); // actualizar lista
 
-  const maxScroll = -(carrusel.scrollWidth - itemWidth);
-
-  if (desplazamiento < maxScroll) desplazamiento = 0;
-  if (desplazamiento > 0) desplazamiento = maxScroll;
-
-  carrusel.style.transform = `translateX(${desplazamiento}px)`;
+function actualizarCarrusel() {
+  carrusel.style.transform = `translateX(-${index * (100 / visible)}%)`;
 }
 
-// Autoplay
-function iniciarAutoplay() {
-  autoplayInterval = setInterval(() => {
-    moverCarrusel(-1);
-  }, 3000); // cada 3 segundos
-}
+// Botón siguiente
+next.addEventListener('click', () => {
+  index++;
+  if (index > items.length - visible) {
+    index = 1;
+    carrusel.style.transition = 'none';
+    carrusel.style.transform = 'translateX(0)';
+    setTimeout(() => {
+      carrusel.style.transition = 'transform 0.6s ease';
+      actualizarCarrusel();
+    }, 20);
+  } else {
+    actualizarCarrusel();
+  }
+});
 
-function detenerAutoplay() {
-  clearInterval(autoplayInterval);
-}
+// Botón anterior
+prev.addEventListener('click', () => {
+  index--;
+  if (index < 0) {
+    index = items.length - visible - 1;
+    carrusel.style.transition = 'none';
+    carrusel.style.transform = `translateX(-${(items.length - visible) * (100 / visible)}%)`;
+    setTimeout(() => {
+      carrusel.style.transition = 'transform 0.6s ease';
+      actualizarCarrusel();
+    }, 20);
+  } else {
+    actualizarCarrusel();
+  }
+});
+
+// Activar el primero
+actualizarCarrusel();
 
 // ===============================
-// EVENTOS
+// AUTOPLAY (opcional)
 // ===============================
 
-// Botones
-next.addEventListener('click', () => moverCarrusel(-1));
-prev.addEventListener('click', () => moverCarrusel(1));
+let autoplay = setInterval(() => {
+  index = (index + 1) % items.length;
+  actualizarCarrusel();
+}, 4000);
 
-// Pausar autoplay al pasar el mouse
-carrusel.addEventListener('mouseenter', detenerAutoplay);
-carrusel.addEventListener('mouseleave', iniciarAutoplay);
-
-// Recalcular al cambiar tamaño de pantalla
-window.addEventListener('resize', () => {
-  itemWidth = calcularAnchoItem();
-  desplazamiento = 0;
-  carrusel.style.transform = 'translateX(0px)';
+carrusel.addEventListener("mouseenter", () => clearInterval(autoplay));
+carrusel.addEventListener("mouseleave", () => {
+  autoplay = setInterval(() => {
+    index = (index + 1) % items.length;
+    actualizarCarrusel();
+  }, 4000);
 });
 
 // ===============================
-// INICIO
+// SCROLL REVEAL
 // ===============================
-itemWidth = calcularAnchoItem();
-iniciarAutoplay();
 
-// ===============================
-// SCROLL REVEAL DEL CARRUSEL
-// ===============================
 const revealElements = document.querySelectorAll('.reveal');
 
 function checkReveal() {
@@ -93,6 +95,7 @@ checkReveal();
 // ===============================
 // PARALLAX HEADER
 // ===============================
+
 const parallaxHeader = document.querySelector('.parallax-header');
 
 window.addEventListener('scroll', () => {
@@ -103,18 +106,19 @@ window.addEventListener('scroll', () => {
 // ===============================
 // MENÚ HAMBURGUESA
 // ===============================
+
 const hamburger = document.getElementById("hamburger");
-const nav = document.getElementById("nav");
+const navLinks = document.querySelector(".nav-links");
 
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
-  nav.classList.toggle("open");
+  navLinks.classList.toggle("active");
 });
 
 // Cerrar menú al tocar un link
-document.querySelectorAll(".nav-principal a").forEach(link => {
+document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("active");
-    nav.classList.remove("open");
+    navLinks.classList.remove("active");
   });
 });

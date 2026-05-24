@@ -1,159 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Casita | Muebles</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Casita | Muebles</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
 
-<body>
+  <body>
+    
+    <!-- HEADER -->
+    <header class="header-carpinteria">
+      
+      <!-- Overlay -->
+      <div class="header-overlay"></div>
+      
+      <div class="header-logo">
+        <img src="imagenes/logo-madera-transparente.png" alt="Logo La Casita" />
+      </div>
+      
+      <!-- Texto -->
+      <div class="header-texto">
+        <h1>La Casita</h1>
+        <p>
+          Muebles a medida • Carpintería artesanal
+        </p>
+      </div>
+      
+      <!-- NAV -->
+      <nav class="nav-principal">
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+    
+        <ul class="nav-links">
+          <li><a href="index.html" class="boton-madera-rectangular">Inicio</a></li>
+          <li><a href="trabajos.html" class="boton-madera-rectangular">Trabajos</a></li>
+          <li><a href="servicios.html" class="boton-madera-rectangular">Servicios</a></li>
+          <li><a href="contacto.html" class="boton-madera-rectangular">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- HEADER -->
-  <header class="header-carpinteria parallax-header">
+    <!-- MAIN -->
+    <main class="contenedor">
+      <h2>Nuestros Trabajos</h2>
 
-    <button class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <!-- CARRUSEL -->
+      <section class="carrusel reveal">
+        <div class="carrusel-contenedor">
+          <button class="btn-carrusel prev">&#10094;</button>
 
-    <!-- Texto del header -->
-    <div class="header-texto">
-      <h1 class="fade-in fade-delay-1">La Casita</h1>
-      <p class="fade-in fade-delay-2">Muebles a medida • Carpintería artesanal</p>
-    </div>
-    <div>
+          <div class="carrusel-items">
+            <!-- 1 — Adirondack -->
+            <div class="item">
+              <img
+                src="imagenes/adirondack.jpg"
+                alt="Sillón Adirondack artesanal"
+              />
+              <h3>Sillón Adirondack</h3>
+              <p>Clásico, cómodo y robusto. Un ícono de La Casita.</p>
+            </div>
 
-    </div>
-    <nav class="nav-principal fade-in fade-delay-3">
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Trabajos</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+            <!-- 2 — Hamaca -->
+            <div class="item">
+              <img src="imagenes/hamaca.jpg" alt="Hamaca artesanal de madera" />
+              <h3>Hamaca Artesanal</h3>
+              <p>Relajación pura con diseño artesanal.</p>
+            </div>
 
-  <!-- MAIN -->
-  <main class="contenedor">
+            <!-- 3 — Jesuita -->
+            <div class="item">
+              <img src="imagenes/jesuita.jpg" alt="Silla Jesuita de madera" />
+              <h3>Silla Jesuita</h3>
+              <p>Tradición y elegancia en carpintería fina.</p>
+            </div>
 
-    <h2>Nuestros Trabajos</h2>
+            <!-- 4 — Camastro -->
+            <div class="item">
+              <img src="imagenes/camastro.jpg" alt="Camastro de madera" />
+              <h3>Camastro</h3>
+              <p>Diseño resistente para exteriores.</p>
+            </div>
 
-    <!-- CARRUSEL -->
-    <section class="carrusel reveal">
+            <!-- 5 — Vanitory -->
+            <div class="item">
+              <img src="imagenes/vanitory.jpg" alt="Vanitory de madera" />
+              <h3>Vanitory</h3>
+              <p>Funcionalidad y estilo para interiores.</p>
+            </div>
 
-      <div class="carrusel-contenedor">
-
-        <button class="btn-carrusel prev">&#10094;</button>
-
-        <div class="carrusel-items">
-
-          <div class="item">
-            <img src="imagenes/mesa1.jpg" alt="mesa con asientos">
-            <h3>Mesa de Camping con Asientos</h3>
-            <p>Fabricada a mano con madera maciza.</p>
+            <!-- 6 — Juego de sillones -->
+            <div class="item">
+              <img
+                src="imagenes/sillones.jpg"
+                alt="Juego de sillones de madera"
+              />
+              <h3>Juego de Sillones</h3>
+              <p>Calidez y confort para tu hogar.</p>
+            </div>
           </div>
 
-          <div class="item">
-            <img src="imagenes/hamaca1.jpg" alt="Hamaca">
-            <h3>Hamaca Artesanal</h3>
-            <p>Diseño moderno y resistente.</p>
-          </div>
-
-          <div class="item">
-            <img src="imagenes/sillon1.jpg" alt="Sillón Adirondack Negro">
-            <h3>Sillón Adirondack Negro</h3>
-            <p>Comodidad y estilo en un solo producto.</p>
-          </div>
-
-          <div class="item">
-            <img src="imagenes/sillon2.jpg" alt="Sillón 2">
-            <h3>Sillón Kentucky</h3>
-            <p>Sillón 2</p>
-          </div>
-
+          <button class="btn-carrusel next">&#10095;</button>
         </div>
 
-        <button class="btn-carrusel next">&#10095;</button>
-      </div>
+        <div class="carrusel-dots"></div>
+      </section>
+    </main>
 
-      <!-- Puntitos -->
-      <div class="carrusel-dots"></div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-contenedor">
+        <!-- Columna 1 -->
+        <div class="footer-col">
+          <h3>La Casita</h3>
+          <p>Muebles a medida y carpintería artesanal.</p>
+        </div>
 
-      <!-- Columna 1: Marca -->
-      <div class="footer-col">
-        <h3>La Casita</h3>
-        <p>Muebles a medida y carpintería artesanal.</p>
+        <!-- Columna 2 -->
+        <div class="footer-col">
+          <h4>Contacto</h4>
+
+          <p>
+            <span class="icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                />
+              </svg>
+            </span>
+            Villa Tesei, Buenos Aires
+          </p>
+
+          <p>
+            <span class="icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01z"
+                />
+              </svg>
+            </span>
+            11-3134-2640 / 11-3137-0849
+          </p>
+
+          <p>
+            <span class="icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4a2 2 0 00-2 2v0.01L12 13l10-6.99V6a2 2 0 00-2-2zm0 4.25l-8 5.25-8-5.25V18a2 2 0 002 2h12a2 2 0 002-2V8.25z"
+                />
+              </svg>
+            </span>
+            lacasita@gmail.com
+          </p>
+        </div>
+
+        <!-- Columna 3: Redes Sociales -->
+        <div class="footer-col">
+          <h4>Redes</h4>
+
+          <a
+            href="https://instagram.com"
+            class="social-btn instagram"
+            target="_blank"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.3A4.7 4.7 0 1112 16.7 4.7 4.7 0 0112 7.3zm6.4-.9a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"
+              />
+            </svg>
+            Instagram
+          </a>
+
+          <a
+            href="https://wa.me/541131342640"
+            class="social-btn whatsapp"
+            target="_blank"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 3.5A10.5 10.5 0 003.4 17.6L2 22l4.6-1.3A10.5 10.5 0 1020 3.5zm-8 15a8.5 8.5 0 01-4.3-1.2l-.3-.2-2.7.8.8-2.6-.2-.3A8.5 8.5 0 1112 18.5zm4.7-5.7c-.3-.2-1.7-.9-2-.9s-.5 0-.7.3-.8.9-1 1.1-.4.2-.7 0a6.8 6.8 0 01-2-1.2 7.5 7.5 0 01-1.4-1.8c-.2-.4 0-.6.2-.8l.5-.6c.2-.2.3-.4.4-.6a.7.7 0 000-.7c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 00-.9.4 3.7 3.7 0 00-1.2 2.7 6.5 6.5 0 001.4 3.4 14.8 14.8 0 005.5 4.7 6.4 6.4 0 003 1c1.1 0 2-.4 2.7-1.2a1 1 0 00.3-.8c0-.2 0-.4-.2-.5z"
+              />
+            </svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
 
-      <!-- Columna 2: Contacto -->
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <p>
-          <span class="icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-            </svg>
-          </span>
-          Villa Tesei, Buenos Aires
-        </p>
+      <p class="footer-copy">
+        © 2026 La Casita — Todos los derechos reservados
+      </p>
+    </footer>
 
-        <p>
-          <span class="icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01z"/>
-            </svg>
-          </span>
-          11-3134-2640 / 11-3137-0849
-        </p>
-        
-        <p>
-          <span class="icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20 4H4a2 2 0 00-2 2v0.01L12 13l10-6.99V6a2 2 0 00-2-2zm0 4.25l-8 5.25-8-5.25V18a2 2 0 002 2h12a2 2 0 002-2V8.25z"/>
-            </svg>
-          </span>
-          lacasita@gmail.com
-        </p>
-      </div>
-
-      <!-- Columna 3: Redes -->
-      <div class="footer-col">
-        <h4>Redes</h4>
-
-        <a href="https://instagram.com" target="_blank" class="footer-red">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3zm5 2.5A5.5 5.5 0 0011.5 15 5.5 5.5 0 0012 6.5zm0 2A3.5 3.5 0 1112 15a3.5 3.5 0 010-7zm4.75-.88a1.12 1.12 0 11-2.24 0 1.12 1.12 0 012.24 0z"/>
-            </svg>
-          </span>
-          Instagram
-        </a>
-
-        <a href="https://wa.me/54911XXXXXXXX" target="_blank" class="footer-red">
-          <span class="icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12.04 2a9.9 9.9 0 00-8.6 14.9L2 22l5.2-1.37A9.9 9.9 0 1012.04 2zm0 2a7.9 7.9 0 017.9 7.9 7.86 7.86 0 01-1.16 4.1l-.18.3a1 1 0 01-.6.44l-3.02.8a1 1 0 01-.95-.26l-.2-.2a6.7 6.7 0 01-2.9-2.9l-.2-.2a1 1 0 01-.26-.95l.8-3.02a1 1 0 01.44-.6l.3-.18A7.86 7.86 0 0112.04 4z"/>
-            </svg>
-          </span>
-          WhatsApp
-        </a>
-      </div>
-    </div>
-    <p class="footer-copy">© 2026 La Casita — Todos los derechos reservados</p>
-  </footer>
-
-  <script src="js/index.js"></script>
-
-</body>
+    <script src="js/index.js"></script>
+  </body>
 </html>
